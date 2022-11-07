@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistik Pariwisata Provinsi Sulawesi Selatan Tahun 2017-2021</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+</head>
+<!--
+`body` tag options:
+
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
+
+<body class="hold-transition layout-top-nav">
+  <div class="wrapper">
+      <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <img src="dist/img/TravelLogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light"><b>Statistik Pariwisata Provinsi Sulawesi Selatan Tahun 2017-2021</b></span>
+      </a>
+    </div>
+  </nav>
+  <!-- /.navbar -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div>
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title"><b>Perkembangan Kunjungan Wisatawan Mancanegara</b></h3>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card card-primary card-outline card-outline-tabs">
+                    <div class="card-header p-0 border-bottom-0">
+                      <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="tahun-wisman-tab" data-toggle="pill" href="#tahun-wisman"
+                            role="tab" aria-controls="tahun-wisman" aria-selected="true">Tahun</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="bulan-wisman-tab" data-toggle="pill" href="#bulan-wisman" role="tab"
+                            aria-controls="bulan-wisman" aria-selected="false">Bulan</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div class="tab-pane fade show active" id="tahun-wisman" role="tabpanel"
+                          aria-labelledby="tahun-wisman">
+                          <div class="d-flex">
+                            <p class="d-flex flex-column">
+                              <span>Total Kedatangan Wisman</span>
+                              <span class="text-bold text-lg">53.824 Orang</span>
+                            </p>
+                            <p class="ml-auto d-flex flex-column text-right">
+                              <span class="text-danger">
+                                <i class="fas fa-arrow-down"></i> 100%
+                              </span>
+                              <span class="text-muted">Dari Tahun Lalu</span>
+                            </p>
+                          </div>
+                          <!-- /.d-flex -->
+
+                          <div class="position-relative mb-4">
+                            <canvas id="kedatangan-wisman-tahun-chart" height="200"></canvas>
+                          </div>
+
+                          <div class="d-flex flex-row justify-content-end">
+                            <span class="mr-2">
+                              <i class="fas fa-square text-primary"></i> Jumlah Kedatangan Wisman
+                            </span>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="bulan-wisman" role="tabpanel" aria-labelledby="bulan-wisman">
+                          <div class="d-flex">
+                            <p class="d-flex flex-column">
+                              <span>Total Kedatangan Wisman</span>
+                              <span class="text-bold text-lg">53.824 Orang</span>
+                            </p>
+                            <p class="ml-auto d-flex flex-column text-right">
+                              <span class="text-muted">
+                                <i class="fas fa-arrow-right"></i> 0%
+                              </span>
+                              <span class="text-muted">Dari Bulan Lalu</span>
+                            </p>
+                          </div>
+                          <!-- /.d-flex -->
+
+                          <div class="position-relative mb-4" style="height: 200px;">
+                            <canvas id="kedatangan-wisman-bulan-chart"></canvas>
+                          </div>
+
+                          <div class="d-flex flex-row justify-content-end">
+                            <span class="mr-2">
+                              <i class="fas fa-square text-primary"></i> Jumlah Kedatangan Wisman
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+
+            <!-- /.col-md-6 -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title"><b>Perkembangan Jumlah Kedatangan Penumpang Internasional di Bandara Hasanuddin</b>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card card-primary card-outline card-outline-tabs">
+                    <div class="card-header p-0 border-bottom-0">
+                      <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="tahun-penumpang-tab" data-toggle="pill" href="#tahun-penumpang"
+                            role="tab" aria-controls="tahun-penumpang" aria-selected="true">Tahun</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="bulan-penumpang-tab" data-toggle="pill" href="#bulan-penumpang"
+                            role="tab" aria-controls="bulan-penumpang" aria-selected="false">Bulan</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div class="tab-pane fade show active" id="tahun-penumpang" role="tabpanel"
+                          aria-labelledby="tahun-penumpang">
+                          <div class="d-flex">
+                            <p class="d-flex flex-column">
+                              <span>Total Kedatangan Penumpang Internasional</span>
+                              <span class="text-bold text-lg">421.921 Orang</span>
+                            </p>
+                            <p class="ml-auto d-flex flex-column text-right">
+                              <span class="text-danger">
+                                <i class="fas fa-arrow-down"></i> 99.97%
+                              </span>
+                              <span class="text-muted">Dari Tahun Lalu</span>
+                            </p>
+                          </div>
+                          <!-- /.d-flex -->
+
+                          <div class="position-relative mb-4">
+                            <canvas id="kedatangan-penumpang-tahun-chart" height="200"></canvas>
+                          </div>
+
+                          <div class="d-flex flex-row justify-content-end">
+                            <span class="mr-2">
+                              <i class="fas fa-square text-primary"></i> Jumlah Kedatangan Penumpang Internasional
+                            </span>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="bulan-penumpang" role="tabpanel"
+                          aria-labelledby="bulan-penumpang">
+                          <div class="d-flex">
+                            <p class="d-flex flex-column">
+                              <span>Total Kedatangan Penumpang Internasional</span>
+                              <span class="text-bold text-lg">421.921 Orang</span>
+                            </p>
+                            <p class="ml-auto d-flex flex-column text-right">
+                              <span class="text-muted">
+                                <i class="fas fa-arrow-right"></i> 0%
+                              </span>
+                              <span class="text-muted">Dari Bulan Lalu</span>
+                            </p>
+                          </div>
+                          <!-- /.d-flex -->
+
+                          <div class="position-relative mb-4" style="height: 200px;">
+                            <canvas id="kedatangan-penumpang-bulan-chart"></canvas>
+                          </div>
+
+                          <div class="d-flex flex-row justify-content-end">
+                            <span class="mr-2">
+                              <i class="fas fa-square text-primary"></i> Jumlah Kedatangan Penumpang Internasional
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+
+            </div>
+            <!-- /.col-md-6 -->
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><b>Kedatangan Wisatawan Mancanegara ke Sulawesi Selatan
+                    menurut Kebangsaan</b></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="dataTables_wrapper">
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>Kebangsaan</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                          <th>2019</th>
+                          <th>2020</th>
+                          <th>2021</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Amerika</td>
+                          <td>399</td>
+                          <td>378</td>
+                          <td>515</td>
+                          <td>93</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Australia</td>
+                          <td>213</td>
+                          <td>207</td>
+                          <td>315</td>
+                          <td>99</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Belanda</td>
+                          <td>354</td>
+                          <td>423</td>
+                          <td>280</td>
+                          <td>39</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>China</td>
+                          <td>669</td>
+                          <td>239</td>
+                          <td>411</td>
+                          <td>44</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Hongkong</td>
+                          <td>58</td>
+                          <td>59</td>
+                          <td>75</td>
+                          <td>0</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>India</td>
+                          <td>117</td>
+                          <td>107</td>
+                          <td>185</td>
+                          <td>22</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Inggris</td>
+                          <td>291</td>
+                          <td>240</td>
+                          <td>241</td>
+                          <td>44</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Jepang</td>
+                          <td>154</td>
+                          <td>140</td>
+                          <td>240</td>
+                          <td>25</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Jerman</td>
+                          <td>521</td>
+                          <td>539</td>
+                          <td>595</td>
+                          <td>109</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Korea Selatan</td>
+                          <td>35</td>
+                          <td>1184</td>
+                          <td>69</td>
+                          <td>14</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Malaysia</td>
+                          <td>9268</td>
+                          <td>7814</td>
+                          <td>10056</td>
+                          <td>2002</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Perancis</td>
+                          <td>733</td>
+                          <td>702</td>
+                          <td>620</td>
+                          <td>103</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Philipina</td>
+                          <td>58</td>
+                          <td>75</td>
+                          <td>83</td>
+                          <td>11</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Singapura</td>
+                          <td>843</td>
+                          <td>693</td>
+                          <td>595</td>
+                          <td>103</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Taiwan</td>
+                          <td>68</td>
+                          <td>32</td>
+                          <td>37</td>
+                          <td>7</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Thailand</td>
+                          <td>134</td>
+                          <td>133</td>
+                          <td>146</td>
+                          <td>215</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>Lainnya</td>
+                          <td>3785</td>
+                          <td>1161</td>
+                          <td>3308</td>
+                          <td>643</td>
+                          <td>0</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>Kebangsaan</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                          <th>2019</th>
+                          <th>2020</th>
+                          <th>2021</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title"><b>Lima Besar Kunjungan Wisatawan Mancanegara Menurut
+                      Kebangsaan</b>
+                    </h3>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card card-primary card-outline card-outline-tabs">
+                    <div class="card-header p-0 border-bottom-0">
+                      <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="kebangsaan2017-tab" data-toggle="pill" href="#kebangsaan2017"
+                            role="tab" aria-controls="kebangsaan2017" aria-selected="true">2017</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="kebangsaan2018-tab" data-toggle="pill" href="#kebangsaan2018"
+                            role="tab" aria-controls="kebangsaan2018" aria-selected="false">2018</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="kebangsaan2019-tab" data-toggle="pill" href="#kebangsaan2019"
+                            role="tab" aria-controls="kebangsaan2019" aria-selected="false">2019</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="kebangsaan2020-tab" data-toggle="pill" href="#kebangsaan2020"
+                            role="tab" aria-controls="kebangsaan2020" aria-selected="false">2020</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div class="tab-pane fade show active" id="kebangsaan2017" role="tabpanel"
+                          aria-labelledby="kebangsaan2017">
+                          <div class="position-relative mb-4">
+                            <canvas id="kebangsaan2017-chart" height="200"></canvas>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="kebangsaan2018" role="tabpanel"
+                          aria-labelledby="kebangsaan2018">
+                          <div class="position-relative mb-4" style="height: 200px;">
+                            <canvas id="kebangsaan2018-chart"></canvas>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="kebangsaan2019" role="tabpanel"
+                          aria-labelledby="kebangsaan2019">
+                          <div class="position-relative mb-4" style="height: 200px;">
+                            <canvas id="kebangsaan2019-chart"></canvas>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="kebangsaan2020" role="tabpanel"
+                          aria-labelledby="kebangsaan2020">
+                          <div class="position-relative mb-4" style="height: 200px;">
+                            <canvas id="kebangsaan2020-chart"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title"><b>Tingkat Penghunian Kamar (TPK) Hotel Bintang (%) Provinsi Sulawesi Selatan Per Bulan</b></h3>
+              </div>
+            </div>
+            <div class="card-body">
+
+              <div class="position-relative mb-4">
+                <canvas id="tpk-hotel-bintang-chart" height="200"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #0bb4ff;"></i> 2021
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #50e991;"></i> 2020
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #e6d800;"></i> 2019
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #9b19f5;"></i> 2018
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #ffa300;"></i> 2017
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title"><b>Tingkat Penghunian Kamar (TPK) Hotel Non Bintang (%) Provinsi Sulawesi Selatan Per Bulan</b></h3>
+              </div>
+            </div>
+            <div class="card-body">
+
+              <div class="position-relative mb-4">
+                <canvas id="tpk-hotel-non-bintang-chart" height="200"></canvas>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #0bb4ff;"></i> 2021
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #50e991;"></i> 2020
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #e6d800;"></i> 2019
+                </span>
+
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color: #9b19f5;"></i> 2018
+                </span>
+              </div>
+              <div class="d-flex flex-row justify-content-end">
+                <span>
+                  <i class="fas fa-info-circle"></i> Data Tingkat Penghunian Kamar (TPK) Hotel Non Bintang (%) Provinsi Sulawesi Selatan Per Bulan Tahun 2017 Tidak Ditemukan
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2021 <a href="#">Anlin Pradana</a>.</strong>
+        All rights reserved.
+      </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard3.js"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/jszip/jszip.min.js"></script>
+    <script src="plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Page specific script -->
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          scrollY: '130px', scrollCollapse: true, paging: false, "responsive": true, "lengthChange": false, "autoWidth": false,
+          "buttons": ["csv", "excel", "pdf", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+        });
+      });
+    </script>
+
+</body>
+
+</html>
